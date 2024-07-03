@@ -1,13 +1,15 @@
-#ifndef sort_HPP
-#define sort_HPP
+#ifndef SORT_HPP
+#define SORT_HPP
+
+#include <vector>
 #include <fstream>
 #include <iostream>
 #include <chrono>
-#include <vector>
 #include <random>
 #include <cmath>
 #include <cctype>
-#include <algorithm> // Adicionado para usar a função reverse
+#include <algorithm>
+
 using namespace std;
 
 class AlgoritmosSort {

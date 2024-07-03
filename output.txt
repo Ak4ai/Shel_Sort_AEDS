@@ -1,5 +1,5 @@
 
 [MÉTODOS EM C++]
-[ Tempo de execução do Shell Sort (gaps padrão) ] : [ 2992 microssegundos ]
-[ Tempo de execução do Shell Sort (gaps de Hibbard) ] : [ 2967 microssegundos ]
-[ Tempo de execução do Shell Sort (gaps de Sedgewick) ] : [ 4986 microssegundos ]
+[ Tempo de execução do Shell Sort (gaps padrão) ] : [ 9358000 nanosegundos ]
+[ Tempo de execução do Shell Sort (gaps de Hibbard) ] : [ 8231000 nanosegundos ]
+[ Tempo de execução do Shell Sort (gaps de Sedgewick) ] : [ 8353000 nanosegundos ]
