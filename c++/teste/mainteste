@@ -1,0 +1,119 @@
+#include "Sort.hpp"
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <chrono>
+#include <algorithm>
+#include <numeric>
+#include <cmath>
+
+using namespace std;
+
+void printArray(const vector<int>& arr) {
+    for (int num : arr) {
+        cout << num << " ";
+    }
+    cout << endl;
+}
+
+int main() {
+    ofstream outfile("output.txt", ios_base::app);
+    char resp;
+    cout << "Deseja LIMPAR o Arquivo [S/N]: ";
+    cin >> resp;
+    resp = toupper(resp);
+    if (resp == 'S')
+        AlgoritmosSort::limparArq();
+    
+    char imprimirResp;
+    cout << "Deseja imprimir o vetor ordenado no terminal? [S/N]: ";
+    cin >> imprimirResp;
+    imprimirResp = toupper(imprimirResp);
+    bool imprimir = (imprimirResp == 'S');
+    
+    int numElementos, maxCasas;
+    cout << "Digite o número de elementos que deseja ler: ";
+    cin >> numElementos;
+    cout << "Digite o número máximo de casas (1 a 7) para os números: ";
+    cin >> maxCasas;
+
+    outfile << "[ Elementos = " << numElementos << "]" << endl;
+    
+    if (maxCasas < 1) maxCasas = 1;
+    if (maxCasas > 7) maxCasas = 7;
+
+    // Ler o vetor do arquivo
+    vector<int> arr = AlgoritmosSort::lerVetor("vetor_gerado.txt", numElementos, maxCasas);
+
+    // Nomes dos algoritmos
+    vector<string> algorithm_names = {"Shell Sort (gaps padrão)", "Shell Sort (gaps de Hibbard)", "Shell Sort (gaps de Sedgewick)", "Shell Sort (gaps de Tokuda)", "Shell Sort (gaps de Incerpi)"};
+
+    int opcao;
+    cout << "\nEscolha um algoritmo para testar:\n";
+    cout << "1. Shell Sort (gaps padrão)\n";
+    cout << "2. Shell Sort (gaps de Hibbard)\n";
+    cout << "3. Shell Sort (gaps de Sedgewick)\n";
+    cout << "4. Shell Sort (gaps de Tokuda)\n";
+    cout << "5. Shell Sort (gaps de Incerpi)\n";
+    cout << "Opção: ";
+    cin >> opcao;
+
+    switch (opcao) {
+        case 1: {
+            vector<int> temp = arr; // Cópia do vetor original
+            AlgoritmosSort::shellSort(temp);
+
+            if (imprimir) {
+                cout << "Array ordenado pelo Shell Sort (gaps padrão):" << endl;
+                printArray(temp);
+            }
+            break;
+        }
+        case 2: {
+            vector<int> temp = arr; // Cópia do vetor original
+            AlgoritmosSort::shellSortHibbard(temp);
+
+            if (imprimir) {
+                cout << "Array ordenado pelo Shell Sort (gaps de Hibbard):" << endl;
+                printArray(temp);
+            }
+            break;
+        }
+        case 3: {
+            vector<int> temp = arr; // Cópia do vetor original
+            AlgoritmosSort::shellSortSedgewick(temp);
+
+            if (imprimir) {
+                cout << "Array ordenado pelo Shell Sort (gaps de Sedgewick):" << endl;
+                printArray(temp);
+            }
+            break;
+        }
+        case 4: {
+            vector<int> temp = arr; // Cópia do vetor original
+            AlgoritmosSort::shellSortTokuda(temp);
+
+            if (imprimir) {
+                cout << "Array ordenado pelo Shell Sort (gaps de Tokuda):" << endl;
+                printArray(temp);
+            }
+            break;
+        }
+        case 5: {
+            vector<int> temp = arr; // Cópia do vetor original
+            AlgoritmosSort::shellSortIncerpi(temp);
+
+            if (imprimir) {
+                cout << "Array ordenado pelo Shell Sort (gaps de Incerpi):" << endl;
+                printArray(temp);
+            }
+            break;
+        }
+        default:
+            cout << "Opção inválida!" << endl;
+            break;
+    }
+
+    outfile.close();
+    return 0;
+}

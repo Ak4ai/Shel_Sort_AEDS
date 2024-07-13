@@ -97,12 +97,7 @@ void AlgoritmosSort::shellSortSedgewick(vector<int>& arr) {
     outfile.close();
 }
 
-vector<int> AlgoritmosSort::gerarVetor() {
-    int tam, max;
-    cout << "Digite o tamanho do vetor: ";
-    cin >> tam;
-    cout << "Digite o valor máximo para os números aleatórios: ";
-    cin >> max;
+vector<int> AlgoritmosSort::gerarVetor(int tam, int max) {
     vector<int> vec;
     random_device rd;
     mt19937 gen(rd());

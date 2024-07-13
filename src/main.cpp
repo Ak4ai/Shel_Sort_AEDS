@@ -10,8 +10,14 @@ int main() {
     resp = toupper(resp);
     if(resp == 'S')
         AlgoritmosSort::limparArq();
+
+    int tam, max;
+    cout << "Digite o tamanho do vetor: ";
+    cin >> tam;
+    cout << "Digite o valor máximo para os números aleatórios: ";
+    cin >> max;
     
-    vector<int> arr = AlgoritmosSort::gerarVetor();
+    vector<int> arr = AlgoritmosSort::gerarVetor(tam, max);
     outfile << endl << "[MÉTODOS EM C++]" << endl;
 
     char imprimirResp;
@@ -39,7 +45,7 @@ int main() {
     }
 
     // Teste Shell Sort com gaps de Hibbard
-    arr = AlgoritmosSort::gerarVetor();
+    arr = AlgoritmosSort::gerarVetor(tam, max);
     if (imprimir){
 
         cout << "Array antes do Shell Sort (gaps de Hibbard):" << endl;
@@ -59,7 +65,7 @@ int main() {
     }
 
     // Teste Shell Sort com gaps de Sedgewick
-    arr = AlgoritmosSort::gerarVetor();
+    arr = AlgoritmosSort::gerarVetor(tam, max);
     if (imprimir){   
         cout << "Array antes do Shell Sort (gaps de Sedgewick):" << endl;
         for (int num : arr) {

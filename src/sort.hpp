@@ -18,7 +18,7 @@ public:
     static void shellSort(vector<int>& arr);
     static void shellSortHibbard(vector<int>& arr);
     static void shellSortSedgewick(vector<int>& arr);
-    static vector<int> gerarVetor();
+    static vector<int> gerarVetor(int tam, int max);
 private:
     static void swap(int& a, int& b);
 };
