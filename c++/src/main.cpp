@@ -17,7 +17,7 @@ int main() {
     if (resp == 'S')
         AlgoritmosSort::limparArq();
 
-    const int repetitions = 1000; // Número de repetições para cada algoritmo
+    const int repetitions = 1; // Número de repetições para cada algoritmo
 
     
     char imprimirResp;
@@ -32,13 +32,14 @@ int main() {
     cout << "Digite o número máximo de casas (1 a 7) para os números: ";
     cin >> maxCasas;
 
+    outfile << "[ Vetor Ordenado Inversamente ]  " ;
     outfile << "[ Elementos = " << numElementos << "]" << endl;
     
     if (maxCasas < 1) maxCasas = 1;
     if (maxCasas > 7) maxCasas = 7;
 
     // Ler o vetor do arquivo
-    vector<int> arr = AlgoritmosSort::lerVetor("vetor_gerado.txt", numElementos, maxCasas);
+    vector<int> arr = AlgoritmosSort::lerVetor("descending_array.txt", numElementos, maxCasas);
     
     vector<vector<long long>> durations(6, vector<long long>(repetitions, 0)); // Para armazenar as durações de cada algoritmo
     vector<long long> total_durations(6, 0); // Para armazenar os tempos totais de cada algoritmo

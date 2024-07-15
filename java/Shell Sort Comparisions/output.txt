@@ -1,0 +1,42 @@
+[ Elementos = 10 ]
+Shell Sort (gaps padrão): Média de 795 nanosegundos
+Shell Sort (gaps de Hibbard): Média de 1550 nanosegundos
+Shell Sort (gaps de Sedgewick): Média de 1427 nanosegundos
+Shell Sort (gaps de Tokuda): Média de 1400 nanosegundos
+Shell Sort (gaps de Incerpi): Média de 2439 nanosegundos
+Shell Sort (gaps de Knuth): Média de 2062 nanosegundos
+[ Elementos = 100 ]
+Shell Sort (gaps padrão): Média de 8286 nanosegundos
+Shell Sort (gaps de Hibbard): Média de 10468 nanosegundos
+Shell Sort (gaps de Sedgewick): Média de 12259 nanosegundos
+Shell Sort (gaps de Tokuda): Média de 9366 nanosegundos
+Shell Sort (gaps de Incerpi): Média de 11870 nanosegundos
+Shell Sort (gaps de Knuth): Média de 8536 nanosegundos
+[ Elementos = 1000 ]
+Shell Sort (gaps padrão): Média de 90115 nanosegundos
+Shell Sort (gaps de Hibbard): Média de 85345 nanosegundos
+Shell Sort (gaps de Sedgewick): Média de 69894 nanosegundos
+Shell Sort (gaps de Tokuda): Média de 92883 nanosegundos
+Shell Sort (gaps de Incerpi): Média de 123105 nanosegundos
+Shell Sort (gaps de Knuth): Média de 86280 nanosegundos
+[ Elementos = 10000 ]
+Shell Sort (gaps padrão): Média de 1335689 nanosegundos
+Shell Sort (gaps de Hibbard): Média de 1470729 nanosegundos
+Shell Sort (gaps de Sedgewick): Média de 1003700 nanosegundos
+Shell Sort (gaps de Tokuda): Média de 1362839 nanosegundos
+Shell Sort (gaps de Incerpi): Média de 2269123 nanosegundos
+Shell Sort (gaps de Knuth): Média de 1181283 nanosegundos
+[ Elementos = 100000 ]
+Shell Sort (gaps padrão): Média de 17731080 nanosegundos
+Shell Sort (gaps de Hibbard): Média de 19804840 nanosegundos
+Shell Sort (gaps de Sedgewick): Média de 15430680 nanosegundos
+Shell Sort (gaps de Tokuda): Média de 18166270 nanosegundos
+Shell Sort (gaps de Incerpi): Média de 40529790 nanosegundos
+Shell Sort (gaps de Knuth): Média de 16036400 nanosegundos
+[ Elementos = 1000000 ]
+Shell Sort (gaps padrão): Média de 284670140 nanosegundos
+Shell Sort (gaps de Hibbard): Média de 299380350 nanosegundos
+Shell Sort (gaps de Sedgewick): Média de 238802970 nanosegundos
+Shell Sort (gaps de Tokuda): Média de 256256370 nanosegundos
+Shell Sort (gaps de Incerpi): Média de 926024350 nanosegundos
+Shell Sort (gaps de Knuth): Média de 297775470 nanosegundos

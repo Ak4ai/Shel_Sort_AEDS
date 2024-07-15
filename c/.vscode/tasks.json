@@ -1,0 +1,14 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run-Code",
+            "type": "shell",
+            "command": "mingw32-make clean ; mingw32-make ; mingw32-make run",
+            "group": "build",
+            "windows": {
+                "command": "mingw32-make clean ; mingw32-make ; mingw32-make run"
+            }
+        }
+    ]
+}

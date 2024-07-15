@@ -1,0 +1,42 @@
+# Gaps    Tamanho_do_Vetor    Tempo_nano
+Knuth     10                  1700
+Hibbard   10                  1708
+padrão    10                  1798
+Tokuda    10                  2200
+Sedgewick 10                  2300
+Incerpi   10                  3799
+
+Knuth     100                 48052
+Tokuda    100                 52373
+Sedgewick 100                 54797
+Hibbard   100                 58999
+padrão    100                 78367
+Incerpi   100                 95296
+
+Sedgewick 1000                769345
+Tokuda    1000                781558
+Hibbard   1000                844546
+padrão    1000                858438
+Knuth     1000                1267604
+Incerpi   1000                2933391
+
+Sedgewick 10000               11330768
+Tokuda    10000               12234637
+Knuth     10000               12712109
+Hibbard   10000               14110373
+padrão    10000               14892616
+Incerpi   10000               42611006
+
+Sedgewick 100000              220142217
+Knuth     100000              276110775
+Hibbard   100000              313935452
+Tokuda    100000              313764882
+padrão    100000              318736136
+Incerpi   100000              1357627363
+
+Sedgewick 1000000             3182462000
+Tokuda    1000000             3721571200
+Knuth     1000000             8041181700
+Hibbard   1000000             4868769600
+padrão    1000000             4880611100
+Incerpi   1000000             36214745700
