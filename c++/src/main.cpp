@@ -39,13 +39,13 @@ int main() {
     if (maxCasas > 7) maxCasas = 7;
 
     // Ler o vetor do arquivo
-    vector<int> arr = AlgoritmosSort::lerVetor("descending_array.txt", numElementos, maxCasas);
+    vector<int> arr = AlgoritmosSort::lerVetor("vetor_gerado.txt", numElementos, maxCasas);
     
     vector<vector<long long>> durations(6, vector<long long>(repetitions, 0)); // Para armazenar as durações de cada algoritmo
     vector<long long> total_durations(6, 0); // Para armazenar os tempos totais de cada algoritmo
 
     // Nomes dos algoritmos
-    vector<string> algorithm_names = {"Shell Sort (gaps padrão)", "Shell Sort (gaps de Hibbard)", "Shell Sort (gaps de Sedgewick)", "Shell Sort (gaps de Tokuda)", "Shell Sort (gaps de Incerpi)", "Shell Sort (gaps de Knuth)"};
+    vector<string> algorithm_names = {"Shell Sort (gaps padrão)", "Shell Sort (gaps de Hibbard)", "Shell Sort (gaps de Sedgewick)", "Shell Sort (gaps de Tokuda)", "Shell Sort (gaps de Ciura)", "Shell Sort (gaps de Knuth)"};
     vector<int> temp; // Declaração do vetor temp fora do loop
 
     // Testar cada algoritmo
@@ -67,7 +67,7 @@ int main() {
                     AlgoritmosSort::shellSortTokuda(temp);
                     break;
                 case 4:
-                    AlgoritmosSort::shellSortIncerpi(temp);
+                    AlgoritmosSort::shellSortCiura(temp);
                     break;
                 case 5:
                     AlgoritmosSort::shellSortKnuth(temp);
@@ -99,7 +99,7 @@ int main() {
     cout << "2. Shell Sort (gaps de Hibbard)\n";
     cout << "3. Shell Sort (gaps de Sedgewick)\n";
     cout << "4. Shell Sort (gaps de Tokuda)\n";
-    cout << "5. Shell Sort (gaps de Incerpi)\n";
+    cout << "5. Shell Sort (gaps de Ciura)\n";
     cout << "6. Shell Sort (gaps de Knuth)\n";
     cout << "Opção: ";
     cin >> opcao;
@@ -147,10 +147,10 @@ int main() {
         }
         case 5: {
             vector<int> temp = arr; // Cópia do vetor original
-            AlgoritmosSort::shellSortIncerpi(temp);
+            AlgoritmosSort::shellSortCiura(temp);
 
             if (imprimir) {
-                cout << "Array ordenado pelo Shell Sort (gaps de Incerpi):" << endl;
+                cout << "Array ordenado pelo Shell Sort (gaps de Ciura):" << endl;
                 AlgoritmosSort::printArray(temp);
             }
             break;

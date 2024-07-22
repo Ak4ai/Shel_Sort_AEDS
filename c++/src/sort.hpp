@@ -19,7 +19,7 @@ public:
     static void shellSortHibbard(vector<int>& arr);
     static void shellSortSedgewick(vector<int>& arr);
     static void shellSortTokuda(std::vector<int>& arr);
-    static void shellSortIncerpi(std::vector<int>& arr);
+    static void shellSortCiura(std::vector<int>& arr);
     static vector<int> gerarVetorWIP(int tam, int max);
     static void salvarVetor(const vector<int>& arr, const string& filename);
     static vector<int> lerVetor(const string& filename, int numElementos, int maxCasas); // Adicione esta linha

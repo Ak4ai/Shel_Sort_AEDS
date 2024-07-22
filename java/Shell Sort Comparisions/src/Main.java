@@ -37,7 +37,7 @@ public class Main {
         if (maxCasas > 7) maxCasas = 7;
 
         // Ler o vetor do arquivo
-        List<Integer> arrList = Sort.lerVetor("vetor_gerado.txt", numElementos, maxCasas);
+        List<Integer> arrList = Sort.lerVetor("semi_random_array.txt", numElementos, maxCasas);
         int[] arr = arrList.stream().mapToInt(i -> i).toArray();
 
         long[][] durations = new long[6][repetitions]; // Para armazenar as durações de cada algoritmo
@@ -49,7 +49,7 @@ public class Main {
             "Shell Sort (gaps de Hibbard)",
             "Shell Sort (gaps de Sedgewick)",
             "Shell Sort (gaps de Tokuda)",
-            "Shell Sort (gaps de Incerpi)",
+            "Shell Sort (gaps de Ciura)",
             "Shell Sort (gaps de Knuth)"
         };
 
@@ -101,12 +101,12 @@ public class Main {
 
             clonedArr = arr.clone();
             startTime = System.nanoTime();
-            Sort.shellSortIncerpi(clonedArr);
+            Sort.shellSortCiura(clonedArr);
             duration = System.nanoTime() - startTime;
             durations[4][r] = duration;
             totalDurations[4] += duration;
             if (imprimir) {
-                System.out.print("Shell Sort (gaps de Incerpi): ");
+                System.out.print("Shell Sort (gaps de Ciura): ");
                 Sort.printArray(clonedArr);
             }
 

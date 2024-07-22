@@ -79,17 +79,14 @@ class AlgoritmosSort:
                 arr[j] = temp
 
     @staticmethod
-    def shell_sort_incerpi(arr):
+    def shell_sort_ciura(arr):
         n = len(arr)
-        gaps = []
-        k = 1
-        while True:
-            gap = int(2 ** (k // 2))
-            if gap >= n:
-                break
-            gaps.append(gap)
-            k += 1
+        # Sequência de gaps de Ciura
+        ciura_gaps = [1, 4, 10, 23, 57, 132, 301, 701, 1750]
+        # Ajusta a sequência de gaps para o tamanho do vetor
+        gaps = [gap for gap in ciura_gaps if gap < n]
         gaps.reverse()
+
         for gap in gaps:
             for i in range(gap, n):
                 temp = arr[i]

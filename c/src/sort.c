@@ -92,12 +92,16 @@ void shellSortTokuda(int *arr, int n) {
     }
 }
 
-void shellSortIncerpi(int *arr, int n) {
-    int gaps[] = {1, 3, 7, 21, 48, 112, 336, 861, 1968, 4592, 13776, 33936, 86961, 198768, 463792, 1391376, 3346188, 9572352, 23358342, 58548857};
-    int k = sizeof(gaps) / sizeof(gaps[0]) - 1;
-    while (gaps[k] >= n) k--;
-    while (k >= 0) {
-        int gap = gaps[k];
+void shellSortCiura(int *arr, int n) {
+    // Sequência de gaps de Ciura
+    int gaps[] = {701, 301, 132, 57, 23, 10, 4, 1};
+    int num_gaps = sizeof(gaps) / sizeof(gaps[0]);
+
+    // Aplicando o Shell Sort com a sequência de gaps de Ciura
+    for (int gap_index = 0; gap_index < num_gaps; gap_index++) {
+        int gap = gaps[gap_index];
+
+        // Aplicando insertion sort com o gap atual
         for (int i = gap; i < n; i++) {
             int temp = arr[i];
             int j;
@@ -106,7 +110,6 @@ void shellSortIncerpi(int *arr, int n) {
             }
             arr[j] = temp;
         }
-        k--;
     }
 }
 

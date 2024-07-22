@@ -1,40 +1,64 @@
+# Detect OS
+ifeq ($(OS),Windows_NT)
+    RM = -del /s /q
+    MD = @mkdir 2> nul || echo.
+    EXE = .exe
+else
+    RM = rm -rf
+    MD = @mkdir -p
+    EXE =
+endif
+
+# Compiladores e Flags
+CXX      := g++
 CC       := gcc
+CXXFLAGS := -Wall -Wextra -Werror
 CFLAGS   := -Wall -Wextra -Werror
-LDFLAGS  := -lm
+LDFLAGS  := -lstdc++ -lm
 BUILD    := build
 OBJ_DIR  := $(BUILD)/objects
 APP_DIR  := $(BUILD)
-TARGET   := app.exe
+TARGET   := app$(EXE)
 INCLUDE  := -Iinclude
-SRC      := $(wildcard src/*.c)
+SRC_CPP  := $(wildcard src/*.cpp)
+SRC_C    := $(wildcard src/*.c)
 
-OBJECTS := $(SRC:src/%.c=$(OBJ_DIR)/%.o)
+# Arquivos objeto
+OBJECTS_CPP := $(SRC_CPP:src/%.cpp=$(OBJ_DIR)/%.o)
+OBJECTS_C   := $(SRC_C:src/%.c=$(OBJ_DIR)/%.o)
+OBJECTS     := $(OBJECTS_CPP) $(OBJECTS_C)
 
 all: build $(APP_DIR)/$(TARGET)
 
+$(OBJ_DIR)/%.o: src/%.cpp
+	$(MD) $(@D)
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -o $@ -c $<
+
 $(OBJ_DIR)/%.o: src/%.c
-	@mkdir $(@D) 2> nul || echo.
+	$(MD) $(@D)
 	$(CC) $(CFLAGS) $(INCLUDE) -o $@ -c $<
 
 $(APP_DIR)/$(TARGET): $(OBJECTS)
-	@mkdir $(@D) 2> nul || echo.
-	$(CC) $(CFLAGS) $(INCLUDE) $(LDFLAGS) -o $@ $(OBJECTS)
+	$(MD) $(@D)
+	$(CXX) $(CXXFLAGS) $(INCLUDE) $(LDFLAGS) -o $@ $(OBJECTS)
 
 .PHONY: all build clean debug release run
 
 build:
-	@mkdir $(APP_DIR) 2> nul || echo.
-	@mkdir $(OBJ_DIR) 2> nul || echo.
+	$(MD) $(APP_DIR)
+	$(MD) $(OBJ_DIR)
 
+debug: CXXFLAGS += -DDEBUG -g
 debug: CFLAGS += -DDEBUG -g
 debug: all
 
+release: CXXFLAGS += -O3
 release: CFLAGS += -O3
 release: all
 
 clean:
-	-del /s /q $(OBJ_DIR)/* 2> nul || echo.
-	-del /s /q $(APP_DIR)/* 2> nul || echo.
+	$(RM) $(OBJ_DIR)/*
+	$(RM) $(APP_DIR)/*
 
 run:
 	$(APP_DIR)/$(TARGET)

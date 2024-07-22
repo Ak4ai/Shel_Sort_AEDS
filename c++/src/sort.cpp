@@ -103,23 +103,19 @@ void AlgoritmosSort::shellSortTokuda(vector<int>& arr) {
 }
 
 
-void AlgoritmosSort::shellSortIncerpi(vector<int>& arr) {
-    int n = arr.size();
+void AlgoritmosSort::shellSortCiura(vector<int>& arr) {
+    // Gaps de Ciura
+    int ciura_gaps[] = {701, 301, 132, 57, 23, 10, 4, 1};
+    int gap_size = sizeof(ciura_gaps) / sizeof(ciura_gaps[0]);
 
-    // Geração dos gaps de Incerti
-    vector<int> gaps;
-    for (int k = 1; ; ++k) {
-        int gap = static_cast<int>(pow(2, k/2));
-        if (gap >= n) break;
-        gaps.push_back(gap);
-    }
-    reverse(gaps.begin(), gaps.end());
+    // Aplicação do Shell Sort com os gaps de Ciura
+    for (int gap_index = 0; gap_index < gap_size; ++gap_index) {
+        size_t gap = ciura_gaps[gap_index];  // Alterado para size_t
 
-    // Ordenação usando os gaps de Incerti
-    for (int gap : gaps) {
-        for (int i = gap; i < n; ++i) {
+        // Aplicação do insertion sort com o gap atual
+        for (size_t i = gap; i < arr.size(); ++i) {  // Alterado para size_t
             int temp = arr[i];
-            int j;
+            size_t j;  // Alterado para size_t
             for (j = i; j >= gap && arr[j - gap] > temp; j -= gap) {
                 arr[j] = arr[j - gap];
             }
@@ -127,6 +123,8 @@ void AlgoritmosSort::shellSortIncerpi(vector<int>& arr) {
         }
     }
 }
+
+
 
 // Função para gerar a sequência de gaps de Knuth
 std::vector<int> generateKnuthSequence(int size) {

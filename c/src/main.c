@@ -5,7 +5,6 @@
 #include <time.h>
 #include <ctype.h>
 #include <math.h>
-#include <windows.h>
 
 #define FILENAME "vetor_gerado.txt"
 #define OUTPUTFILE "output.txt"
@@ -17,6 +16,18 @@ void clearFile(const char *filename) {
     }
 }
 
+#ifdef _WIN32
+#include <windows.h>
+#define TIME_TYPE LARGE_INTEGER
+#define GET_TIME(t) QueryPerformanceCounter(&t)
+#define TIME_DIFF(start, end, freq) ((end.QuadPart - start.QuadPart) * 1000000000 / freq.QuadPart)
+#else
+#include <time.h>
+#define TIME_TYPE struct timespec
+#define GET_TIME(t) clock_gettime(CLOCK_MONOTONIC, &t)
+#define TIME_DIFF(start, end, freq) ((end.tv_sec - start.tv_sec) * 1000000000 + (end.tv_nsec - start.tv_nsec))
+#endif
+
 int main() {
     FILE *outfile;
     char resp;
@@ -27,7 +38,7 @@ int main() {
         clearFile(OUTPUTFILE);
     }
 
-    const int repetitions = 1;
+    const int repetitions = 10000;
 
     char imprimirResp;
     printf("Deseja imprimir o vetor ordenado no terminal? [S/N]: ");
@@ -42,27 +53,42 @@ int main() {
     scanf("%d", &maxCasas);
 
     outfile = fopen(OUTPUTFILE, "a");
+    if (!outfile) {
+        perror("Erro ao abrir o arquivo de saída");
+        return EXIT_FAILURE;
+    }
     fprintf(outfile, "[ Elementos = %d ]\n", numElementos);
-    
+
     if (maxCasas < 1) maxCasas = 1;
     if (maxCasas > 7) maxCasas = 7;
 
     int *arr = lerVetor(FILENAME, numElementos, maxCasas);
     long long durations[6][repetitions];
     long long total_durations[6] = {0};
-    const char *algorithm_names[] = {"Shell Sort (gaps padrão)", "Shell Sort (gaps de Hibbard)", "Shell Sort (gaps de Sedgewick)", "Shell Sort (gaps de Tokuda)", "Shell Sort (gaps de Incerpi)", "Shell Sort (gaps de Knuth)"};
+    const char *algorithm_names[] = {"Shell Sort (gaps padrão)", "Shell Sort (gaps de Hibbard)", "Shell Sort (gaps de Sedgewick)", "Shell Sort (gaps de Tokuda)", "Shell Sort (gaps de Ciura)", "Shell Sort (gaps de Knuth)"};
 
+#ifdef _WIN32
     LARGE_INTEGER frequency;
     QueryPerformanceFrequency(&frequency);
+#else
+    struct timespec frequency;
+    clock_gettime(CLOCK_MONOTONIC, &frequency);
+#endif
 
     for (int alg = 0; alg < 6; ++alg) {
         for (int i = 0; i < repetitions; ++i) {
             int *temp = (int *)malloc(numElementos * sizeof(int));
+            if (!temp) {
+                perror("Erro ao alocar memória");
+                fclose(outfile);
+                free(arr);
+                return EXIT_FAILURE;
+            }
             memcpy(temp, arr, numElementos * sizeof(int));
 
-            LARGE_INTEGER start, end;
-            QueryPerformanceCounter(&start);
-            
+            TIME_TYPE start, end;
+            GET_TIME(start);
+
             switch (alg) {
                 case 0:
                     shellSort(temp, numElementos);
@@ -77,7 +103,7 @@ int main() {
                     shellSortTokuda(temp, numElementos);
                     break;
                 case 4:
-                    shellSortIncerpi(temp, numElementos);
+                    shellSortCiura(temp, numElementos);
                     break;
                 case 5:
                     shellSortKnuth(temp, numElementos);
@@ -86,22 +112,22 @@ int main() {
                     break;
             }
 
-            QueryPerformanceCounter(&end);
+            GET_TIME(end);
 
-            durations[alg][i] = (end.QuadPart - start.QuadPart) * 1000000000 / frequency.QuadPart; // em nanosegundos
+            durations[alg][i] = TIME_DIFF(start, end, frequency); // em nanosegundos
             total_durations[alg] += durations[alg][i];
             free(temp);
         }
 
         long long average_duration = total_durations[alg] / repetitions;
-        fprintf(outfile, "[ Tempo médio de execução do %s ] : [ %I64d nanosegundos ]\n", algorithm_names[alg], average_duration);
+        fprintf(outfile, "[ Tempo médio de execução do %s ] : [ %lld nanosegundos ]\n", algorithm_names[alg], average_duration);
 
         double sum_square_diff = 0.0;
         for (int i = 0; i < repetitions; ++i) {
             sum_square_diff += (durations[alg][i] - average_duration) * (durations[alg][i] - average_duration);
         }
         double standard_deviation = sqrt(sum_square_diff / repetitions);
-        printf("Desvio padrão do %s : %lf nanosegundos\n", algorithm_names[alg], standard_deviation);
+        fprintf(outfile, "Desvio padrão do %s : %lf nanosegundos\n", algorithm_names[alg], standard_deviation);
     }
 
     if (imprimir) {
@@ -111,12 +137,18 @@ int main() {
         printf("2. Shell Sort (gaps de Hibbard)\n");
         printf("3. Shell Sort (gaps de Sedgewick)\n");
         printf("4. Shell Sort (gaps de Tokuda)\n");
-        printf("5. Shell Sort (gaps de Incerpi)\n");
+        printf("5. Shell Sort (gaps de Ciura)\n");
         printf("6. Shell Sort (gaps de Knuth)\n");
         printf("Opção: ");
         scanf("%d", &opcao);
 
         int *temp = (int *)malloc(numElementos * sizeof(int));
+        if (!temp) {
+            perror("Erro ao alocar memória");
+            fclose(outfile);
+            free(arr);
+            return EXIT_FAILURE;
+        }
         memcpy(temp, arr, numElementos * sizeof(int));
 
         switch (opcao) {
@@ -133,7 +165,7 @@ int main() {
                 shellSortTokuda(temp, numElementos);
                 break;
             case 5:
-                shellSortIncerpi(temp, numElementos);
+                shellSortCiura(temp, numElementos);
                 break;
             case 6:
                 shellSortKnuth(temp, numElementos);

@@ -1,0 +1,5 @@
+# Tipo de Vetor           Knuth        Hibbard      padrão       Tokuda       Sedgewick    Ciura
+Vetor Aleatório           133393260    150261620    142966160    127618620    130736280    205700250
+Vetor Semi-Aleatório      112040870    137921580    111875210    120528230    87387440     109646840
+Vetor Ordenado            4367000      6489510      4918860      6157420      3726140      3677540
+Vetor Ordenado Inverso    17200990     24248260     19358010     20797940     133275290    234282290

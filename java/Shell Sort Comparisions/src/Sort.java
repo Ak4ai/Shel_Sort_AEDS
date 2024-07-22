@@ -100,23 +100,27 @@ public class Sort {
         }
     }
 
-    public static void shellSortIncerpi(int[] arr) {
+    public static void shellSortCiura(int[] arr) {
         int n = arr.length;
-        List<Integer> gaps = new ArrayList<>();
-        for (int k = 1; ; k++) {
-            int gap = (int) Math.pow(2, k / 2);
-            if (gap >= n) break;
-            gaps.add(gap);
-        }
-        Collections.reverse(gaps);
-        for (int gap : gaps) {
-            for (int i = gap; i < n; i++) {
-                int temp = arr[i];
-                int j;
-                for (j = i; j >= gap && arr[j - gap] > temp; j -= gap) {
-                    arr[j] = arr[j - gap];
+
+        // Generate the Ciura sequence
+        int[] ciuraSequence = {1, 4, 10, 23, 57, 132, 301, 701, 1750};
+
+        // Iterate over the Ciura sequence from the largest to the smallest
+        for (int i = ciuraSequence.length - 1; i >= 0; i--) {
+            int gap = ciuraSequence[i];
+            if (gap >= n) {
+                continue;
+            }
+
+            // Perform the gapped insertion sort for this gap
+            for (int j = gap; j < n; j++) {
+                int temp = arr[j];
+                int k;
+                for (k = j; k >= gap && arr[k - gap] > temp; k -= gap) {
+                    arr[k] = arr[k - gap];
                 }
-                arr[j] = temp;
+                arr[k] = temp;
             }
         }
     }

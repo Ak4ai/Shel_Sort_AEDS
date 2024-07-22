@@ -1,42 +1,52 @@
 [ Elementos = 10 ]
-[ Tempo médio de execução do Shell Sort (gaps padrão) ] : [ 400 nanosegundos ]
-[ Tempo médio de execução do Shell Sort (gaps de Hibbard) ] : [ 500 nanosegundos ]
-[ Tempo médio de execução do Shell Sort (gaps de Sedgewick) ] : [ 300 nanosegundos ]
-[ Tempo médio de execução do Shell Sort (gaps de Tokuda) ] : [ 1300 nanosegundos ]
-[ Tempo médio de execução do Shell Sort (gaps de Incerpi) ] : [ 600 nanosegundos ]
-[ Tempo médio de execução do Shell Sort (gaps de Knuth) ] : [ 1200 nanosegundos ]
-[ Elementos = 100 ]
-[ Tempo médio de execução do Shell Sort (gaps padrão) ] : [ 6200 nanosegundos ]
-[ Tempo médio de execução do Shell Sort (gaps de Hibbard) ] : [ 6200 nanosegundos ]
-[ Tempo médio de execução do Shell Sort (gaps de Sedgewick) ] : [ 4600 nanosegundos ]
-[ Tempo médio de execução do Shell Sort (gaps de Tokuda) ] : [ 7200 nanosegundos ]
-[ Tempo médio de execução do Shell Sort (gaps de Incerpi) ] : [ 18700 nanosegundos ]
-[ Tempo médio de execução do Shell Sort (gaps de Knuth) ] : [ 6900 nanosegundos ]
-[ Elementos = 1000 ]
-[ Tempo médio de execução do Shell Sort (gaps padrão) ] : [ 97200 nanosegundos ]
-[ Tempo médio de execução do Shell Sort (gaps de Hibbard) ] : [ 97600 nanosegundos ]
-[ Tempo médio de execução do Shell Sort (gaps de Sedgewick) ] : [ 81900 nanosegundos ]
-[ Tempo médio de execução do Shell Sort (gaps de Tokuda) ] : [ 92100 nanosegundos ]
-[ Tempo médio de execução do Shell Sort (gaps de Incerpi) ] : [ 92500 nanosegundos ]
-[ Tempo médio de execução do Shell Sort (gaps de Knuth) ] : [ 86500 nanosegundos ]
-[ Elementos = 10000 ]
-[ Tempo médio de execução do Shell Sort (gaps padrão) ] : [ 1431400 nanosegundos ]
-[ Tempo médio de execução do Shell Sort (gaps de Hibbard) ] : [ 1467400 nanosegundos ]
-[ Tempo médio de execução do Shell Sort (gaps de Sedgewick) ] : [ 1439400 nanosegundos ]
-[ Tempo médio de execução do Shell Sort (gaps de Tokuda) ] : [ 1457800 nanosegundos ]
-[ Tempo médio de execução do Shell Sort (gaps de Incerpi) ] : [ 1295800 nanosegundos ]
-[ Tempo médio de execução do Shell Sort (gaps de Knuth) ] : [ 2033600 nanosegundos ]
-[ Elementos = 100000 ]
-[ Tempo médio de execução do Shell Sort (gaps padrão) ] : [ 16162800 nanosegundos ]
-[ Tempo médio de execução do Shell Sort (gaps de Hibbard) ] : [ 17425800 nanosegundos ]
-[ Tempo médio de execução do Shell Sort (gaps de Sedgewick) ] : [ 16848600 nanosegundos ]
-[ Tempo médio de execução do Shell Sort (gaps de Tokuda) ] : [ 15634200 nanosegundos ]
-[ Tempo médio de execução do Shell Sort (gaps de Incerpi) ] : [ 15592400 nanosegundos ]
-[ Tempo médio de execução do Shell Sort (gaps de Knuth) ] : [ 13790300 nanosegundos ]
-[ Elementos = 1000000 ]
-[ Tempo médio de execução do Shell Sort (gaps padrão) ] : [ 215063700 nanosegundos ]
-[ Tempo médio de execução do Shell Sort (gaps de Hibbard) ] : [ 245453000 nanosegundos ]
-[ Tempo médio de execução do Shell Sort (gaps de Sedgewick) ] : [ 247954400 nanosegundos ]
-[ Tempo médio de execução do Shell Sort (gaps de Tokuda) ] : [ 190734400 nanosegundos ]
-[ Tempo médio de execução do Shell Sort (gaps de Incerpi) ] : [ 175856900 nanosegundos ]
-[ Tempo médio de execução do Shell Sort (gaps de Knuth) ] : [ 202239400 nanosegundos ]
+[ Tempo médio de execução do Shell Sort (gaps padrão) ] : [ 104 nanosegundos ]
+Desvio padrão do Shell Sort (gaps padrão) : 346.354182 nanosegundos
+[ Tempo médio de execução do Shell Sort (gaps de Hibbard) ] : [ 105 nanosegundos ]
+Desvio padrão do Shell Sort (gaps de Hibbard) : 165.710520 nanosegundos
+[ Tempo médio de execução do Shell Sort (gaps de Sedgewick) ] : [ 99 nanosegundos ]
+Desvio padrão do Shell Sort (gaps de Sedgewick) : 123.410963 nanosegundos
+[ Tempo médio de execução do Shell Sort (gaps de Tokuda) ] : [ 255 nanosegundos ]
+Desvio padrão do Shell Sort (gaps de Tokuda) : 223.622422 nanosegundos
+[ Tempo médio de execução do Shell Sort (gaps de Ciura) ] : [ 83 nanosegundos ]
+Desvio padrão do Shell Sort (gaps de Ciura) : 90.441875 nanosegundos
+[ Tempo médio de execução do Shell Sort (gaps de Knuth) ] : [ 214 nanosegundos ]
+Desvio padrão do Shell Sort (gaps de Knuth) : 987.581459 nanosegundos
+[ Elementos = 0 ]
+[ Tempo médio de execução do Shell Sort (gaps padrão) ] : [ 16 nanosegundos ]
+Desvio padrão do Shell Sort (gaps padrão) : 3.430321 nanosegundos
+[ Tempo médio de execução do Shell Sort (gaps de Hibbard) ] : [ 27 nanosegundos ]
+Desvio padrão do Shell Sort (gaps de Hibbard) : 162.378421 nanosegundos
+[ Tempo médio de execução do Shell Sort (gaps de Sedgewick) ] : [ 25 nanosegundos ]
+Desvio padrão do Shell Sort (gaps de Sedgewick) : 364.021147 nanosegundos
+[ Tempo médio de execução do Shell Sort (gaps de Tokuda) ] : [ 127 nanosegundos ]
+Desvio padrão do Shell Sort (gaps de Tokuda) : 7248.920418 nanosegundos
+[ Tempo médio de execução do Shell Sort (gaps de Ciura) ] : [ 27 nanosegundos ]
+Desvio padrão do Shell Sort (gaps de Ciura) : 10.449871 nanosegundos
+[ Tempo médio de execução do Shell Sort (gaps de Knuth) ] : [ 18 nanosegundos ]
+Desvio padrão do Shell Sort (gaps de Knuth) : 2.962347 nanosegundos
+[ Elementos = 0 ]
+[ Tempo médio de execução do Shell Sort (gaps padrão) ] : [ 21 nanosegundos ]
+Desvio padrão do Shell Sort (gaps padrão) : 7.758125 nanosegundos
+[ Tempo médio de execução do Shell Sort (gaps de Hibbard) ] : [ 21 nanosegundos ]
+Desvio padrão do Shell Sort (gaps de Hibbard) : 131.317399 nanosegundos
+[ Tempo médio de execução do Shell Sort (gaps de Sedgewick) ] : [ 19 nanosegundos ]
+Desvio padrão do Shell Sort (gaps de Sedgewick) : 4.838305 nanosegundos
+[ Tempo médio de execução do Shell Sort (gaps de Tokuda) ] : [ 47 nanosegundos ]
+Desvio padrão do Shell Sort (gaps de Tokuda) : 402.592922 nanosegundos
+[ Tempo médio de execução do Shell Sort (gaps de Ciura) ] : [ 28 nanosegundos ]
+Desvio padrão do Shell Sort (gaps de Ciura) : 100.654526 nanosegundos
+[ Tempo médio de execução do Shell Sort (gaps de Knuth) ] : [ 18 nanosegundos ]
+Desvio padrão do Shell Sort (gaps de Knuth) : 7.321680 nanosegundos
+[ Elementos = 0 ]
+[ Tempo médio de execução do Shell Sort (gaps padrão) ] : [ 27 nanosegundos ]
+Desvio padrão do Shell Sort (gaps padrão) : 140.547998 nanosegundos
+[ Tempo médio de execução do Shell Sort (gaps de Hibbard) ] : [ 19 nanosegundos ]
+Desvio padrão do Shell Sort (gaps de Hibbard) : 5.330478 nanosegundos
+[ Tempo médio de execução do Shell Sort (gaps de Sedgewick) ] : [ 18 nanosegundos ]
+Desvio padrão do Shell Sort (gaps de Sedgewick) : 93.179012 nanosegundos
+[ Tempo médio de execução do Shell Sort (gaps de Tokuda) ] : [ 82 nanosegundos ]
+Desvio padrão do Shell Sort (gaps de Tokuda) : 3702.665896 nanosegundos
+[ Tempo médio de execução do Shell Sort (gaps de Ciura) ] : [ 24 nanosegundos ]
+Desvio padrão do Shell Sort (gaps de Ciura) : 4.922408 nanosegundos
+[ Tempo médio de execução do Shell Sort (gaps de Knuth) ] : [ 17 nanosegundos ]
+Desvio padrão do Shell Sort (gaps de Knuth) : 2.698296 nanosegundos

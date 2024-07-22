@@ -30,11 +30,11 @@ def main():
     # Nomes dos algoritmos
     algorithm_names = ["Shell Sort (gaps padrão)", "Shell Sort (gaps de Hibbard)", 
                        "Shell Sort (gaps de Sedgewick)", "Shell Sort (gaps de Tokuda)", 
-                       "Shell Sort (gaps de Incerpi)", "Shell Sort (gaps de Knuth)"]
+                       "Shell Sort (gaps de Ciura)", "Shell Sort (gaps de Knuth)"]
 
     algorithms = [AlgoritmosSort.shell_sort, AlgoritmosSort.shell_sort_hibbard, 
                   AlgoritmosSort.shell_sort_sedgewick, AlgoritmosSort.shell_sort_tokuda, 
-                  AlgoritmosSort.shell_sort_incerpi, AlgoritmosSort.shell_sort_knuth]
+                  AlgoritmosSort.shell_sort_ciura, AlgoritmosSort.shell_sort_knuth]
 
     for alg in range(6):
         for i in range(repetitions):
@@ -59,7 +59,7 @@ def main():
                           "2. Shell Sort (gaps de Hibbard)\n"
                           "3. Shell Sort (gaps de Sedgewick)\n"
                           "4. Shell Sort (gaps de Tokuda)\n"
-                          "5. Shell Sort (gaps de Incerpi)\n"
+                          "5. Shell Sort (gaps de Ciura)\n"
                           "6. Shell Sort (gaps de Knuth)\n"
                           "Opção: "))
         if 1 <= opcao <= 6:
